@@ -1,0 +1,47 @@
+.card {
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    margin: 10px;
+    color: white;
+    background-color: #323b91;
+    transition: box-shadow 0.3s ease;
+    font-size: 16px;
+    font-family: sans-serif;
+}
+  
+.card:hover {
+   box-shadow: 10px 10px 30px rgba(148, 148, 148, 0.13);
+}
+
+.centered-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Adjust as needed to control the vertical height */
+  }
+  
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns with 1:2 ratio */
+    gap: 20px; /* Gap between grid items */
+}
+
+.grid-item {
+    box-shadow: 7px 4px 14px 6px #e5e0e04d;
+   padding-bottom: 140px;
+   padding-top: 100px;
+   padding-left: 100px;
+   padding-right: 100px;
+   background-color: #323b91;
+   font-family: sans-serif;
+   border: none;
+}
+
+.expand-item {
+    grid-column: span 2; /* Span two columns */
+}
+.grid-item:nth-of-type(3){
+    grid-column: span 2;
+    
+}

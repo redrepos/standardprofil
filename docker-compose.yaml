@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_DB=prod
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=doumi2023
+
+  api:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - DB_HOST=db
+      - DB_NAME=prod
+      - DB_USER=postgres
+      - DB_PASSWORD=doumi2023
+    depends_on:
+      - db
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        REACT_APP_API_URL: ${REACT_APP_API_URL}
+    ports:
+      - "80:80"
+    depends_on:
+      - api
